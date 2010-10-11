@@ -4,6 +4,11 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
+/**
+ * AdjacencyListsTest
+ * @author Andrew
+ *
+ */
 public class AdjacencyListsTest {
 	@Test
 	public void testRead() {
