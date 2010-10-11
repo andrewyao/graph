@@ -63,7 +63,15 @@ public class DFSearch {
 
 			while (p != null) {
 				int y = p.y;
-				if (!processed[y] || g.directed) {
+				
+				if (!discovered[y]) {
+					parent[y] = v;
+					processEdge(v, y);
+					
+					q.add(new Integer(y));
+					discovered[y] = true;
+					
+				} else if (!processed[y] || g.directed) {
 					processEdge(v, y);
 				}
 				
@@ -71,11 +79,6 @@ public class DFSearch {
 					return;
 				}
 				
-				if (!discovered[y]) {
-					q.add(new Integer(y));
-					discovered[y] = true;
-					parent[y] = v;
-				}
 				p = p.next;
 			}
 			

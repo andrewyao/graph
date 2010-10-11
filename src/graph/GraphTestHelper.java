@@ -47,6 +47,14 @@ public class GraphTestHelper {
 		cc.ps = getPrintStream();
 		return cc;
 	}
+	
+	public static ArticulationVertices getArticulationVertices(String s, boolean directed) {
+		ArticulationVertices av = new ArticulationVertices(directed);
+		readFromString(av.g, s);
+		av.init();
+		av.ps = getPrintStream();
+		return av;
+	}
 
 	public static TwoColor getTwoColor(String s, boolean directed)
 	{
