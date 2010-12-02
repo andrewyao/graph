@@ -1,7 +1,7 @@
 package graph;
 
 public class EdgeNode {
-	int y;
-	int weight;
-	EdgeNode next;
+	public int y;
+	public int weight;
+	public EdgeNode next;
 }

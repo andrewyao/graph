@@ -10,7 +10,10 @@ public class TwoColor extends BFSearch {
 	private boolean bipartite;
 
 	@Override
-	void init() {
+	protected void init() {
+		
+		super.init();
+		
 		color = new Color[g.nvertices];
 		for (int i = 0; i < g.nvertices; ++i) {
 			color[i] = Color.UNCOLORED;
@@ -20,7 +23,6 @@ public class TwoColor extends BFSearch {
 
 	}
 
-	@Override
 	void run() {
 		for (int i = 0; i < g.nvertices; ++i) {
 			if (!discovered[i]) {
@@ -36,7 +38,7 @@ public class TwoColor extends BFSearch {
 	}
 
 	@Override
-	void processEdge(int x, int y) {
+	protected void processEdge(int x, int y) {
 		if (color[x] == color[y]) {
 			bipartite = false;
 		}
@@ -54,7 +56,7 @@ public class TwoColor extends BFSearch {
 	}
 
 	@Override
-	void processVertexEarly(int v) {
+	protected void processVertexEarly(int v) {
 	}
 
 	enum Color {

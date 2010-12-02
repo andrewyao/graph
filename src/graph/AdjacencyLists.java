@@ -14,7 +14,7 @@ public class AdjacencyLists {
 	int nedges;
 	boolean directed;
 
-	void insertEdge(int x, int y, boolean directed) {
+	public void insertEdge(int x, int y, boolean directed) {
 		EdgeNode p = new EdgeNode();
 
 		p.y = y;
@@ -29,7 +29,7 @@ public class AdjacencyLists {
 		}
 	}
 
-	void read(InputStream s) {
+	public void read(InputStream s) {
 		Scanner scanner = new Scanner(s);
 
 		// number of edges

@@ -7,22 +7,22 @@ import java.util.Queue;
 
 public class BFSearch {
 
-	AdjacencyLists g; 
+	AdjacencyLists g;
 	PrintStream ps = System.out;
 	boolean[] processed;
 	boolean[] discovered;
 	int[] parent;
 
-	BFSearch(boolean directed) {
+	public BFSearch(boolean directed) {
 		g = new AdjacencyLists(directed);
 	}
 
-	void read(InputStream s) {
+	public void read(InputStream s) {
 		g.read(s);
 		init();
 	}
-	
-	void init() {
+
+	protected void init() {
 		processed = new boolean[g.nvertices];
 		discovered = new boolean[g.nvertices];
 		parent = new int[g.nvertices];
@@ -33,15 +33,11 @@ public class BFSearch {
 			parent[i] = -1;
 		}
 	}
-	
-	void run() {
-		bfs(0);
-	}
 
-	void bfs(int start) {
+	public void bfs(int start) {
 		Queue<Integer> q = new LinkedList<Integer>();
 		q.add(new Integer(start));
-		int y;
+
 		discovered[start] = true;
 
 		while (!q.isEmpty()) {
@@ -52,7 +48,7 @@ public class BFSearch {
 			EdgeNode p = g.edges[v];
 
 			while (p != null) {
-				y = p.y;
+				int y = p.y;
 				if (!processed[y] || g.directed) {
 					processEdge(v, y);
 				}
@@ -67,15 +63,15 @@ public class BFSearch {
 		}
 	}
 
-	void processVertexLate(int v) {
+	protected void processVertexLate(int v) {
 
 	}
 
-	void processVertexEarly(int v) {
+	protected void processVertexEarly(int v) {
 		this.ps.printf("Vertex %d\n", v);
 	}
-	
-	void processEdge(int x, int y) {
+
+	protected void processEdge(int x, int y) {
 		this.ps.printf("Edge (%d,%d)\n", x, y);
 	}
 }

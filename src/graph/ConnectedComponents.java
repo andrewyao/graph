@@ -6,7 +6,6 @@ public class ConnectedComponents extends BFSearch {
 		super(directed);
 	}
 
-	@Override
 	void run() {
 
 		int c = 0;
@@ -22,11 +21,11 @@ public class ConnectedComponents extends BFSearch {
 	}
 
 	@Override
-	void processVertexEarly(int v) {
+	protected void processVertexEarly(int v) {
 		ps.printf(" %d", v);
 	}
 
 	@Override
-	void processEdge(int x, int y) {
+	protected void processEdge(int x, int y) {
 	}
 }
